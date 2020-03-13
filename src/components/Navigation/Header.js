@@ -4,43 +4,58 @@ import styled from 'styled-components'
 import Hamburger from './Hamburger'
 
 
-const Container = styled.div`
+const HeaderContainer = styled.div`
+    height: 100px;
+
+    .inner-header{
+        position: relative;
+        z-index: 10;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo a{
+            font-weight: 700;
+            text-decoration: none;
+            color: #191919;
+        }
+
+        .menu{
+            button{
+                border:none;
+                background: none;
+                outline: none;
+                cursor: pointer;
+                font-size: 0.8rem;
+                color: #191919;
+            }
+        }
+    }
     
 `
-const Wrapper = styled.div`
-    
-`
-const InnerHeader = styled.div`
-    
-`
-const Logo = styled.div`
-    
-`
-const Menu = styled.div`
-    
-`
-const Button = styled.button`
-    
-`
+
 
 
 
 const Header = () => (
-    <>
-        <Container>
-            <Wrapper>
-                <InnerHeader>
-                    <Logo>
-                        <Link to='/'>Simple Films</Link>
-                    </Logo>
-                    <Menu>
-                        <Button>Menu</Button>
-                    </Menu>
-                </InnerHeader>
-            </Wrapper>
-        </Container>
+    <HeaderContainer>
+        <div className="container">
+            <div className="wrapper">
+                <div className="inner-header">
+                    <div className="logo">
+                        <Link to="/">SIMPLE FILMS.</Link>
+                    </div>
+                    <div className="menu">
+                        <button>
+                            Menu
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <Hamburger />
-    </>
+    </HeaderContainer>
 )
 
 export default Header
