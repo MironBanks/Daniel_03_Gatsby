@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link } from "gatsby"
 import styled from 'styled-components'
+import gsap from 'gsap'
 
 
 
@@ -136,48 +137,99 @@ const MovieInfo = styled.div`
 
 
 
-const Hamburger = () => (
-    <HamburgerMenuContainer>
-        <HamburgerMenu>
-            <MenuSecondaryBackgroundColor />
-            <MenuLayer>
-                <div className='menu-city-background'>
+const Hamburger = ({ state }) => {
 
-                </div>
-                <div className="container">
-                    <Wrapper>
-                        <div className='menu-links'>
-                            <nav>
-                                <ul>
-                                    <li><Link to='/about'>About</Link></li>
-                                    <li><Link to='/news'>News</Link></li>
-                                    <li><Link to='/prices'>Prices</Link></li>
-                                    <li><Link to='/contact'>Contact</Link></li>
-                                </ul>
-                            </nav>
-                            <Info>
-                                <h3>Our Promise</h3>
-                                <p>Have you ever heard or read stories about people who
-                                    change their paths and find their passion after 30?
-                                    That is definitely me. It all started with me taking
-                                    simple pictures using the kit lens of my camera, but my
-                                    curiosity led me down the path of new knowledge, techniques
-                                    and equipment.
-                            </p>
-                            </Info>
-                            <MovieInfo>
-                                What we do:
-                            <span>Event Films</span>
-                                <span>Promo Films</span>
-                                <span>Social Media Video</span>
-                                <span>Corporate Video</span>
-                            </MovieInfo>
-                        </div>
-                    </Wrapper>
-                </div>
-            </MenuLayer>
-        </HamburgerMenu>
-    </HamburgerMenuContainer>
-)
+    let menu = useRef(null)
+    let RevealMenu = useRef(null)
+    let RevealMenuBackground = useRef(null)
+    let MovieBackground = useRef(null)
+    let line1 = useRef(null)
+    let line2 = useRef(null)
+    let line3 = useRef(null)
+    let line4 = useRef(null)
+    let info = useRef(null)
+
+    useEffect(() => {
+        if (state.clicked === false) {
+            gsap.to([RevealMenu, RevealMenuBackground], {
+                duration: 0.8,
+                height: 0,
+                ease: "power3.inOut",
+                stagger: {
+                    amount: 0.07
+                }
+            })
+            gsap.to(menu, {
+                duration: 1,
+                css: { display: 'none' }
+            })
+        } else if (state.clicked === true ||
+            state.clicked === true && state.intial === null) {
+            gsap.to(menu, {
+                duration: 0,
+                css: { display: 'block' }
+            })
+            gsap.to([RevealMenuBackground, RevealMenu], {
+                duration: 0,
+                opacity: 1,
+                height: "100%"
+
+            })
+        }
+    })
+
+
+    return (
+        <HamburgerMenuContainer ref={el => (menu = el)}>
+            <HamburgerMenu>
+                <MenuSecondaryBackgroundColor ref={el => (RevealMenuBackground = el)} />
+                <MenuLayer ref={el => (RevealMenu = el)}>
+                    <div className='menu-city-background'>
+
+                    </div>
+                    <div className="container">
+                        <Wrapper>
+                            <div className='menu-links'>
+                                <nav>
+                                    <ul>
+                                        <li><Link
+                                            ref={el => (line1 = el)}
+                                            to='/about'>About</Link></li>
+                                        <li><Link
+                                            ref={el => (line2 = el)}
+                                            to='/news'>News</Link></li>
+                                        <li><Link
+                                            ref={el => (line3 = el)}
+                                            to='/prices'>Prices</Link></li>
+                                        <li><Link
+                                            ref={el => (line4 = el)}
+                                            to='/contact'>Contact</Link></li>
+                                    </ul>
+                                </nav>
+                                <Info ref={el => (info = el)}>
+                                    <h3>Our Promise</h3>
+                                    <p>Have you ever heard or read stories about people who
+                                        change their paths and find their passion after 30?
+                                        That is definitely me. It all started with me taking
+                                        simple pictures using the kit lens of my camera, but my
+                                        curiosity led me down the path of new knowledge, techniques
+                                        and equipment.
+                                </p>
+                                </Info>
+                                <MovieInfo>
+                                    What we do:
+                                    <span>Event Films</span>
+                                    <span>Promo Films</span>
+                                    <span>Social Media Video</span>
+                                    <span>Corporate Video</span>
+                                </MovieInfo>
+                            </div>
+                        </Wrapper>
+                    </div>
+                </MenuLayer>
+            </HamburgerMenu>
+        </HamburgerMenuContainer>
+    )
+}
 
 export default Hamburger

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Hamburger from './Hamburger'
+import { globalHistory } from '@reach/router/lib/history'
 
 
 const HeaderContainer = styled.div`
@@ -46,7 +47,17 @@ const Header = () => {
         menuName: "Menu"
     })
 
+    const [disabled, setDisabled] = useState(false)
+
+    useEffect(() => {
+        globalHistory.listen(() => {
+            setState({ clicked: false, menuName: 'Menu' })
+        })
+    })
+
+
     const handleMenu = () => {
+        disableMenu()
         if (state.initial === false) {
             setState({
                 initial: null,
@@ -66,6 +77,13 @@ const Header = () => {
         }
     }
 
+    const disableMenu = () => {
+        setDisabled(!disabled)
+        setTimeout(() => {
+            setDisabled(false)
+        }, 1200)
+    }
+
 
     return (
         <HeaderContainer>
@@ -76,12 +94,12 @@ const Header = () => {
                             <Link to="/">SIMPLE FILMS.</Link>
                         </div>
                         <div className="menu">
-                            <button onClick={handleMenu}>Menu</button>
+                            <button disabled={disabled} onClick={handleMenu}>Menu</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <Hamburger />
+            <Hamburger state={state} />
         </HeaderContainer>
     )
 }
