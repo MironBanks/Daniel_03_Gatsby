@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Hamburger from './Hamburger'
@@ -38,24 +38,52 @@ const HeaderContainer = styled.div`
 
 
 
-const Header = () => (
-    <HeaderContainer>
-        <div className="container">
-            <div className="wrapper">
-                <div className="inner-header">
-                    <div className="logo">
-                        <Link to="/">SIMPLE FILMS.</Link>
-                    </div>
-                    <div className="menu">
-                        <button>
-                            Menu
-                        </button>
+const Header = () => {
+
+    const [state, setState] = useState({
+        initial: false,
+        clicked: null,
+        menuName: "Menu"
+    })
+
+    const handleMenu = () => {
+        if (state.initial === false) {
+            setState({
+                initial: null,
+                clicked: true,
+                menuName: 'Close'
+            })
+        } else if (state.clicked === true) {
+            setState({
+                clicked: !state.clicked,
+                menuName: 'Menu'
+            })
+        } else if (state.clicked === false) {
+            setState({
+                clicked: !state.clicked,
+                menuName: 'Close'
+            })
+        }
+    }
+
+
+    return (
+        <HeaderContainer>
+            <div className="container">
+                <div className="wrapper">
+                    <div className="inner-header">
+                        <div className="logo">
+                            <Link to="/">SIMPLE FILMS.</Link>
+                        </div>
+                        <div className="menu">
+                            <button onClick={handleMenu}>Menu</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <Hamburger />
-    </HeaderContainer>
-)
+            <Hamburger />
+        </HeaderContainer>
+    )
+}
 
 export default Header

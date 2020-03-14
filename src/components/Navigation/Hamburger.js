@@ -6,6 +6,7 @@ import styled from 'styled-components'
 
 const HamburgerMenuContainer = styled.div`
    height: 100px;
+   display: none;
    
 `
 const HamburgerMenu = styled.div`
