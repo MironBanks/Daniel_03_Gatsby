@@ -3,6 +3,19 @@ import { Link } from "gatsby"
 import styled from 'styled-components'
 import gsap from 'gsap'
 
+import corpo from '../../assets/images/corpo.jpeg'
+import event from '../../assets/images/event.jpeg'
+import promo from '../../assets/images/promo.jpeg'
+import social from '../../assets/images/social_media.jpeg'
+
+
+const videoWork = [
+    { name: 'Corpo', image: corpo },
+    { name: 'Event', image: event },
+    { name: 'Promo', image: promo },
+    { name: 'Social', image: social }
+];
+
 
 
 const HamburgerMenuContainer = styled.div`
@@ -33,11 +46,11 @@ const MenuSecondaryBackgroundColor = styled.div`
 
 const MenuLayer = styled.div`
     position: relative;
-    background: #e20001;
+    background: #596c68;
     height: 100%;
     overflow: hidden;
 
-        .menu-city-background {
+        .video-background {
             top: 0;
             left: 0;
             right: 0;
@@ -126,7 +139,7 @@ const MovieInfo = styled.div`
             
         &:hover {
             color: #fff;
-            background: #191919;
+            background: #403f48;
             padding: 8px 24px;
             border-radius: 4px;
         }
@@ -138,16 +151,18 @@ const MovieInfo = styled.div`
 
 
 const Hamburger = ({ state }) => {
+    console.log(corpo)
 
     let menu = useRef(null)
     let RevealMenu = useRef(null)
     let RevealMenuBackground = useRef(null)
-    let MovieBackground = useRef(null)
+    let videoWorkBackground = useRef(null)
     let line1 = useRef(null)
     let line2 = useRef(null)
     let line3 = useRef(null)
     let line4 = useRef(null)
     let info = useRef(null)
+    let movieInfo = useRef(null)
 
     useEffect(() => {
         if (state.clicked === false) {
@@ -164,7 +179,7 @@ const Hamburger = ({ state }) => {
                 css: { display: 'none' }
             })
         } else if (state.clicked === true ||
-            state.clicked === true && state.intial === null) {
+            state.clicked === true && state.initial === null) {
             gsap.to(menu, {
                 duration: 0,
                 css: { display: 'block' }
@@ -175,8 +190,72 @@ const Hamburger = ({ state }) => {
                 height: "100%"
 
             })
+            fadeInUp(info)
+            staggerReveal(RevealMenuBackground, RevealMenu)
+            staggerText(line1, line2, line3, line4)
+
         }
-    })
+    }, [state])
+
+
+    const staggerReveal = (node1, node2) => {
+        gsap.from([node1, node2], {
+            duration: .8,
+            height: 0,
+            transformOrigin: 'right top',
+            skewY: 2,
+            ease: 'power3.inOut',
+            stagger: {
+                amount: 0.1
+            }
+        })
+    }
+
+    const fadeInUp = (node) => {
+        gsap.from(node, {
+            y: 60,
+            duration: 1,
+            delay: .2,
+            opacity: 0,
+            ease: 'power3.inOut'
+        })
+    }
+
+    const staggerText = (node1, node2, node3, node4) => {
+        gsap.from([node1, node2, node3, node4], {
+            duration: 0.8,
+            opacity: 0,
+            delay: .1,
+            ease: 'power3.inOut',
+            stagger: {
+                amount: 0.5
+            }
+        })
+    }
+
+    const handleVideo = (city, target) => {
+        gsap.to(target, {
+            duration: 0,
+            background: `url(${city}) center center`
+        })
+        gsap.to(target, {
+            duration: .4,
+            opacity: 1,
+            ease: 'power3.inOut'
+        })
+        gsap.from(target, {
+            duration: .4,
+            skewY: 2,
+            transformOrigin: 'right top'
+        })
+    }
+
+    const handleVideoReturn = target => {
+        gsap.to(target, {
+            duration: .4,
+            opacity: 0
+        })
+    }
 
 
     return (
@@ -184,7 +263,8 @@ const Hamburger = ({ state }) => {
             <HamburgerMenu>
                 <MenuSecondaryBackgroundColor ref={el => (RevealMenuBackground = el)} />
                 <MenuLayer ref={el => (RevealMenu = el)}>
-                    <div className='menu-city-background'>
+                    <div ref={el => (videoWorkBackground = el)}
+                        className="video-background">
 
                     </div>
                     <div className="container">
@@ -192,17 +272,13 @@ const Hamburger = ({ state }) => {
                             <div className='menu-links'>
                                 <nav>
                                     <ul>
-                                        <li><Link
-                                            ref={el => (line1 = el)}
+                                        <li ref={el => (line1 = el)}><Link
                                             to='/about'>About</Link></li>
-                                        <li><Link
-                                            ref={el => (line2 = el)}
+                                        <li ref={el => (line2 = el)}><Link
                                             to='/news'>News</Link></li>
-                                        <li><Link
-                                            ref={el => (line3 = el)}
+                                        <li ref={el => (line3 = el)}><Link
                                             to='/prices'>Prices</Link></li>
-                                        <li><Link
-                                            ref={el => (line4 = el)}
+                                        <li ref={el => (line4 = el)}><Link
                                             to='/contact'>Contact</Link></li>
                                     </ul>
                                 </nav>
@@ -218,17 +294,21 @@ const Hamburger = ({ state }) => {
                                 </Info>
                                 <MovieInfo>
                                     What we do:
-                                    <span>Event Films</span>
-                                    <span>Promo Films</span>
-                                    <span>Social Media Video</span>
-                                    <span>Corporate Video</span>
+                                    {videoWork.map(el => (
+                                        <span
+                                            key={el.name}
+                                            onMouseEnter={() => handleVideo(el.image, videoWorkBackground)}
+                                            onMouseOut={() => handleVideoReturn(videoWorkBackground)}>
+                                            {el.name}
+                                        </span>
+                                    ))}
                                 </MovieInfo>
                             </div>
                         </Wrapper>
                     </div>
                 </MenuLayer>
             </HamburgerMenu>
-        </HamburgerMenuContainer>
+        </HamburgerMenuContainer >
     )
 }
 
