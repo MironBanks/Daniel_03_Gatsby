@@ -7,6 +7,11 @@ import { globalHistory } from '@reach/router/lib/history'
 
 const HeaderContainer = styled.div`
     height: 100px;
+    width: 1280px;
+    @media only screen and (max-width: 500px) {
+                width: 100vw;
+                max-width: 500px;
+                }
 
     .inner-header{
         position: relative;
@@ -16,10 +21,20 @@ const HeaderContainer = styled.div`
         justify-content: space-between;
         align-items: center;
 
+        @media only screen and (max-width: 500px) {
+                width: 100vw;
+                max-width: 500px;
+                padding: 20px;
+            }
+
         .logo a{
             font-weight: 700;
             text-decoration: none;
             color: #191919;
+
+            @media only screen and (max-width: 500px) {
+                font-size: 1.4rem;
+            }
         }
 
         .menu{
@@ -30,6 +45,11 @@ const HeaderContainer = styled.div`
                 cursor: pointer;
                 font-size: 0.8rem;
                 color: #191919;
+
+                @media only screen and (max-width: 500px) {
+                font-size: 1rem;
+                margin-right: 5px;
+                }
             }
         }
     }

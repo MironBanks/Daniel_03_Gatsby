@@ -32,7 +32,11 @@ const videoWork = [
 const HamburgerMenuContainer = styled.div`
    height: 100px;
    display: none;
-   
+
+   @media only screen and (max-width: 500px) {
+                width: 100vw;
+                max-width: 500px;
+                }
 `
 const HamburgerMenu = styled.div`
     z-index: 9;
@@ -42,6 +46,11 @@ const HamburgerMenu = styled.div`
     position: fixed;
     height: 100%;
     width: 100%;
+
+    @media only screen and (max-width: 500px) {
+                width: 100vw;
+                max-width: 500px;
+                }
 `
 const MenuSecondaryBackgroundColor = styled.div`
     background: #191919;
@@ -53,6 +62,11 @@ const MenuSecondaryBackgroundColor = styled.div`
     height: 100%;
     width: 100%;
     z-index: -1;
+
+    @media only screen and (max-width: 500px) {
+                width: 100vw;
+                max-width: 500px;
+                }
 `
 
 const MenuLayer = styled.div`
@@ -92,6 +106,11 @@ const MenuLayer = styled.div`
                 background-position: 0% 0%;
             }
         }
+
+    @media only screen and (max-width: 500px) {
+                width: 100vw;
+                max-width: 500px;
+                }
 `
 
 const Wrapper = styled.div`
@@ -136,6 +155,17 @@ const Wrapper = styled.div`
             }
         }
     }
+
+    @media only screen and (max-width: 500px) {
+                width: 100vw;
+                max-width: 500px;
+                padding:0 10px; 
+
+                    .menu-links nav ul li {
+                        font-size: 5rem;
+                        height: 100px;
+                    }
+                }
 `
 const Info = styled.div`
     color: #fff;
@@ -150,6 +180,10 @@ const Info = styled.div`
         font-size: 1rem;
         margin: 0 auto;
     }
+
+    @media only screen and (max-width: 500px) {
+                display: none;
+                }
 `
 
 const MovieInfo = styled.div`
@@ -169,6 +203,15 @@ const MovieInfo = styled.div`
         font-weight: 200;
         margin: 0 32px;
         transition: 0.3s ease-in-out;
+
+        @media only screen and (max-width: 500px) {
+                margin: 0 10px;
+
+                &:first-child {
+                        margin-left: 34px;
+                    }
+
+                }
             
         &:hover {
             color: #fff;
@@ -194,7 +237,6 @@ const Hamburger = ({ state }) => {
     let line3 = useRef(null)
     let line4 = useRef(null)
     let info = useRef(null)
-    let movieInfo = useRef(null)
 
     useEffect(() => {
         if (state.clicked === false) {
@@ -204,7 +246,7 @@ const Hamburger = ({ state }) => {
                 css: { display: 'none' }
             })
         } else if (state.clicked === true ||
-            state.clicked === true && state.initial === null) {
+            (state.clicked === true && state.initial === null)) {
             gsap.to(menu, {
                 duration: 0,
                 css: { display: 'block' }
@@ -238,24 +280,32 @@ const Hamburger = ({ state }) => {
                                 <nav>
                                     <ul>
                                         <li
-                                            onMouseEnter={e => handleHover(e)}
-                                            onMouseOut={e => handleHoverExit(e)}
-                                            ref={el => (line1 = el)}><Link
+                                            ref={el => (line1 = el)}>
+                                            <Link
+                                                onMouseEnter={e => handleHover(e)}
+                                                onMouseOut={e => handleHoverExit(e)}
+                                                onBlur={e => handleHoverExit(e)}
                                                 to='/about'>About</Link></li>
                                         <li
-                                            onMouseEnter={e => handleHover(e)}
-                                            onMouseOut={e => handleHoverExit(e)}
-                                            ref={el => (line2 = el)}><Link
+                                            ref={el => (line2 = el)}>
+                                            <Link
+                                                onMouseEnter={e => handleHover(e)}
+                                                onMouseOut={e => handleHoverExit(e)}
+                                                onBlur={e => handleHoverExit(e)}
                                                 to='/news'>News</Link></li>
                                         <li
-                                            onMouseEnter={e => handleHover(e)}
-                                            onMouseOut={e => handleHoverExit(e)}
-                                            ref={el => (line3 = el)}><Link
+                                            ref={el => (line3 = el)}>
+                                            <Link
+                                                onMouseEnter={e => handleHover(e)}
+                                                onMouseOut={e => handleHoverExit(e)}
+                                                onBlur={e => handleHoverExit(e)}
                                                 to='/prices'>Prices</Link></li>
                                         <li
-                                            onMouseEnter={e => handleHover(e)}
-                                            onMouseOut={e => handleHoverExit(e)}
-                                            ref={el => (line4 = el)}><Link
+                                            ref={el => (line4 = el)}>
+                                            <Link
+                                                onMouseEnter={e => handleHover(e)}
+                                                onMouseOut={e => handleHoverExit(e)}
+                                                onBlur={e => handleHoverExit(e)}
                                                 to='/contact'>Contact</Link></li>
                                     </ul>
                                 </nav>
@@ -274,9 +324,13 @@ const Hamburger = ({ state }) => {
                                     What we do:
                                     {videoWork.map(el => (
                                         <span
+                                            role="button"
+                                            tabIndex='0'
                                             key={el.name}
                                             onMouseEnter={() => handleVideo(el.image, videoWorkBackground)}
-                                            onMouseOut={() => handleVideoReturn(videoWorkBackground)}>
+                                            onMouseOut={() => handleVideoReturn(videoWorkBackground)}
+                                            onBlur={() => handleVideoReturn(videoWorkBackground)}
+                                        >
                                             {el.name}
                                         </span>
                                     ))}

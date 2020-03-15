@@ -14,9 +14,9 @@ html {
 body {
     margin: 0;
     font-family: 'Montserrat';
-    width: 1280px;
-    min-width: 1280px;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 
 button {
