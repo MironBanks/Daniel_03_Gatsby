@@ -59,6 +59,27 @@ const MenuLayer = styled.div`
             height: 100%;
             width: 100%;
             opacity: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: cameraPan 30s infinite;
+        }
+
+        @keyframes cameraPan{
+            0% {
+                background-position: 0% 0%;
+            }
+            25% {
+                background-position: 40% 10%;
+            }
+            50%{
+                background-position: 0% 10%;
+            }
+            75%{
+                background-position: 10% 40%
+            }
+            100%{
+                background-position: 0% 0%;
+            }
         }
 `
 
@@ -236,7 +257,7 @@ const Hamburger = ({ state }) => {
     const handleVideo = (city, target) => {
         gsap.to(target, {
             duration: 0,
-            background: `url(${city}) center center`
+            background: `url(${city}) center center`,
         })
         gsap.to(target, {
             duration: .4,
@@ -257,6 +278,24 @@ const Hamburger = ({ state }) => {
         })
     }
 
+    const handleHover = e => {
+        gsap.to(e.target, {
+            duration: 0.3,
+            y: 3,
+            skewX: 4,
+            ease: "power3.inOut"
+        })
+    }
+
+    const handleHoverExit = e => {
+        gsap.to(e.target, {
+            duration: 0.3,
+            y: -3,
+            skewX: 0,
+            ease: "power3.inOut"
+        })
+    }
+
 
     return (
         <HamburgerMenuContainer ref={el => (menu = el)}>
@@ -272,14 +311,26 @@ const Hamburger = ({ state }) => {
                             <div className='menu-links'>
                                 <nav>
                                     <ul>
-                                        <li ref={el => (line1 = el)}><Link
-                                            to='/about'>About</Link></li>
-                                        <li ref={el => (line2 = el)}><Link
-                                            to='/news'>News</Link></li>
-                                        <li ref={el => (line3 = el)}><Link
-                                            to='/prices'>Prices</Link></li>
-                                        <li ref={el => (line4 = el)}><Link
-                                            to='/contact'>Contact</Link></li>
+                                        <li
+                                            onMouseEnter={e => handleHover(e)}
+                                            onMouseOut={e => handleHoverExit(e)}
+                                            ref={el => (line1 = el)}><Link
+                                                to='/about'>About</Link></li>
+                                        <li
+                                            onMouseEnter={e => handleHover(e)}
+                                            onMouseOut={e => handleHoverExit(e)}
+                                            ref={el => (line2 = el)}><Link
+                                                to='/news'>News</Link></li>
+                                        <li
+                                            onMouseEnter={e => handleHover(e)}
+                                            onMouseOut={e => handleHoverExit(e)}
+                                            ref={el => (line3 = el)}><Link
+                                                to='/prices'>Prices</Link></li>
+                                        <li
+                                            onMouseEnter={e => handleHover(e)}
+                                            onMouseOut={e => handleHoverExit(e)}
+                                            ref={el => (line4 = el)}><Link
+                                                to='/contact'>Contact</Link></li>
                                     </ul>
                                 </nav>
                                 <Info ref={el => (info = el)}>
