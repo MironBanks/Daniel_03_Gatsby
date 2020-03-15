@@ -3,10 +3,21 @@ import { Link } from "gatsby"
 import styled from 'styled-components'
 import gsap from 'gsap'
 
-import corpo from '../../assets/images/corpo.jpeg'
+import corpo from '../../assets/images/corpo.jpg'
 import event from '../../assets/images/event.jpeg'
 import promo from '../../assets/images/promo.jpeg'
 import social from '../../assets/images/social_media.jpeg'
+
+import {
+    staggerReveal,
+    staggerRevealClose,
+    staggerText,
+    fadeInUp,
+    handleHover,
+    handleHoverExit,
+    handleVideo,
+    handleVideoReturn
+} from '../Animation'
 
 
 const videoWork = [
@@ -128,15 +139,16 @@ const Wrapper = styled.div`
 `
 const Info = styled.div`
     color: #fff;
-    width: 300px;
+    width: 500px;
 
     h3 {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
       margin: 8px auto;
     }
     p {
+        text-align: left;
+        font-size: 1rem;
         margin: 0 auto;
-        font-size: 0.8rem;
     }
 `
 
@@ -172,7 +184,6 @@ const MovieInfo = styled.div`
 
 
 const Hamburger = ({ state }) => {
-    console.log(corpo)
 
     let menu = useRef(null)
     let RevealMenu = useRef(null)
@@ -187,14 +198,7 @@ const Hamburger = ({ state }) => {
 
     useEffect(() => {
         if (state.clicked === false) {
-            gsap.to([RevealMenu, RevealMenuBackground], {
-                duration: 0.8,
-                height: 0,
-                ease: "power3.inOut",
-                stagger: {
-                    amount: 0.07
-                }
-            })
+            staggerRevealClose(RevealMenu, RevealMenuBackground);
             gsap.to(menu, {
                 duration: 1,
                 css: { display: 'none' }
@@ -217,84 +221,6 @@ const Hamburger = ({ state }) => {
 
         }
     }, [state])
-
-
-    const staggerReveal = (node1, node2) => {
-        gsap.from([node1, node2], {
-            duration: .8,
-            height: 0,
-            transformOrigin: 'right top',
-            skewY: 2,
-            ease: 'power3.inOut',
-            stagger: {
-                amount: 0.1
-            }
-        })
-    }
-
-    const fadeInUp = (node) => {
-        gsap.from(node, {
-            y: 60,
-            duration: 1,
-            delay: .2,
-            opacity: 0,
-            ease: 'power3.inOut'
-        })
-    }
-
-    const staggerText = (node1, node2, node3, node4) => {
-        gsap.from([node1, node2, node3, node4], {
-            duration: 0.8,
-            opacity: 0,
-            delay: .1,
-            ease: 'power3.inOut',
-            stagger: {
-                amount: 0.5
-            }
-        })
-    }
-
-    const handleVideo = (city, target) => {
-        gsap.to(target, {
-            duration: 0,
-            background: `url(${city}) center center`,
-        })
-        gsap.to(target, {
-            duration: .4,
-            opacity: 1,
-            ease: 'power3.inOut'
-        })
-        gsap.from(target, {
-            duration: .4,
-            skewY: 2,
-            transformOrigin: 'right top'
-        })
-    }
-
-    const handleVideoReturn = target => {
-        gsap.to(target, {
-            duration: .4,
-            opacity: 0
-        })
-    }
-
-    const handleHover = e => {
-        gsap.to(e.target, {
-            duration: 0.3,
-            y: 3,
-            skewX: 4,
-            ease: "power3.inOut"
-        })
-    }
-
-    const handleHoverExit = e => {
-        gsap.to(e.target, {
-            duration: 0.3,
-            y: -3,
-            skewX: 0,
-            ease: "power3.inOut"
-        })
-    }
 
 
     return (
@@ -337,6 +263,7 @@ const Hamburger = ({ state }) => {
                                     <h3>Our Promise</h3>
                                     <p>Have you ever heard or read stories about people who
                                         change their paths and find their passion after 30?
+                                        <br />
                                         That is definitely me. It all started with me taking
                                         simple pictures using the kit lens of my camera, but my
                                         curiosity led me down the path of new knowledge, techniques
