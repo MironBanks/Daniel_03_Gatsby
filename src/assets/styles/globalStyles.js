@@ -14,9 +14,14 @@ html {
 body {
     margin: 0;
     font-family: 'Montserrat';
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
+    padding: 20px 65px 0;
+
+    @media only screen and (max-width: 500px) {
+        width:95vw;
+        height: 100vh;
+        padding: 10px;
+        margin: 0;
+                }
 }
 
 button {

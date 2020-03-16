@@ -7,10 +7,12 @@ import { globalHistory } from '@reach/router/lib/history'
 
 const HeaderContainer = styled.div`
     height: 100px;
-    width: 1280px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     @media only screen and (max-width: 500px) {
-                width: 100vw;
-                max-width: 500px;
+                width: 100%;
+                max-width: 400px;
                 }
 
     .inner-header{
@@ -22,18 +24,19 @@ const HeaderContainer = styled.div`
         align-items: center;
 
         @media only screen and (max-width: 500px) {
-                width: 100vw;
-                max-width: 500px;
-                padding: 20px;
+                width: 90vw;
+                padding: 10px;
             }
 
         .logo a{
             font-weight: 700;
             text-decoration: none;
+            margin-right: 30px;
             color: black;
 
             @media only screen and (max-width: 500px) {
                 font-size: 1.4rem;
+                margin-right: 40px;
             }
         }
 
