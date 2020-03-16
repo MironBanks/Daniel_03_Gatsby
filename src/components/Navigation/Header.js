@@ -30,7 +30,7 @@ const HeaderContainer = styled.div`
         .logo a{
             font-weight: 700;
             text-decoration: none;
-            color: #191919;
+            color: black;
 
             @media only screen and (max-width: 500px) {
                 font-size: 1.4rem;
@@ -44,7 +44,7 @@ const HeaderContainer = styled.div`
                 outline: none;
                 cursor: pointer;
                 font-size: 0.8rem;
-                color: #191919;
+                color: black;
 
                 @media only screen and (max-width: 500px) {
                 font-size: 1rem;
