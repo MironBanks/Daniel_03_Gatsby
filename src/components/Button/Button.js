@@ -11,7 +11,7 @@ const Button = styled.button`
 
   a{
     color: #fff;
-                  text-decoration: none;
+    text-decoration: none;
   }
 `;
 

@@ -61,7 +61,7 @@ const MenuSecondaryBackgroundColor = styled.div`
     position: fixed;
     height: 100%;
     width: 100%;
-    z-index: -1;
+    z-index: 19;
 
     @media only screen and (max-width: 500px) {
                 width: 100vw;
@@ -74,6 +74,7 @@ const MenuLayer = styled.div`
     background: #596c68;
     height: 100%;
     overflow: hidden;
+    z-index: 20;
 
         .video-background {
             top: 0;

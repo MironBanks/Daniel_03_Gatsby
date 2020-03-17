@@ -64,6 +64,7 @@ const StyledImage = styled(Image)`
       bottom: 0;
       width: 48%;
       object-fit: cover;
+      z-index: -1;
 
       @media only screen and (max-width: 500px) {
                     display: none;
