@@ -6,8 +6,8 @@ import styled from 'styled-components'
 
 const Top = styled.div`
 
-    .overlay{
-        background-color: black;
+    .overlaySecond{
+        background-color: #596c68;
         top: 0;
         left: 0;
         right: 0;
@@ -15,21 +15,21 @@ const Top = styled.div`
         position: fixed;
         height: 100%;
         width: 100%;
-        z-index: 3;
+        z-index: 2;
         }
 
 `
 
 
 
-const IntroOverlay = () => (
+const IntroOverlaySecond = () => (
     <>
 
         <Top>
-            <div className="overlay"></div>
+            <div className="overlaySecond"></div>
         </Top>
 
     </>
 )
 
-export default IntroOverlay
+export default IntroOverlaySecond

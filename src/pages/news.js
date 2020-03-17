@@ -33,55 +33,61 @@ const ArticlesWrapper = styled.div`
 
 
 const pageData = {
-    title1: 'What kind of film',
-    title2: 'do You need?',
-    paragraph: `we make sure You get a video we can both be proud of.`,
+  title1: 'What kind of film',
+  title2: 'do You need?',
+  paragraph: `we make sure You get a video we can both be proud of.`,
 }
 
 
 const NewsPage = ({ data }) => {
-    const { allMdx: { nodes } } = data
+  const { allMdx: { nodes } } = data
 
 
-    useEffect(() => {
-        const tl = gsap.timeline()
+  useEffect(() => {
+    const tl = gsap.timeline()
 
-        tl.from("h1", 1.8, {
-            duration: 0.8,
-            opacity: 0,
-            transformOrigin: 'right',
-            delay: .3,
-            ease: 'power3.inOut',
-            stagger: {
-                amount: 0.5
-            }
-        }).from(".pageInfoParagraph", 1.5, {
-            duration: 0.8,
-            opacity: 0,
-            delay: .03,
-            ease: 'power3.inOut'
-        }).to('.overlay-bottom', 1.6, {
-            height: 0,
-            ease: 'expo.inOut',
-            stagger: 0.4
-        })
+    tl.from("h1", 1.8, {
+      duration: 0.8,
+      opacity: 0,
+      transformOrigin: 'right',
+      delay: .3,
+      ease: 'power3.inOut',
+      stagger: {
+        amount: 0.5
+      }
+    }).from(".pageInfoParagraph", 1.5, {
+      duration: 0.8,
+      opacity: 0,
+      delay: .03,
+      ease: 'power3.inOut'
+    }).to('.overlay-bottom', 1.6, {
+      height: 0,
+      ease: 'expo.inOut',
+      stagger: 0.4
+    }).to('.bottom', 0.05, {
+      css: { display: 'none' }
     })
+  })
 
 
 
-    return (
-        <>
-            <NewsTitleWrapper>
-                <PageInfo title1={pageData.title1} title2={pageData.title2} paragraph={pageData.paragraph} />
-            </NewsTitleWrapper>
-            <WorkOverlay />
-            <ArticlesWrapper>
-                {nodes.map(({ excerpt, frontmatter: { title, slug, author, featuredImage } }) => (
-                    <ArticlePreview title={title} excerpt={excerpt} background={featuredImage.childImageSharp.fluid.src} />
-                ))}
-            </ArticlesWrapper>
-        </>
-    );
+  return (
+    <>
+      <NewsTitleWrapper>
+        <PageInfo title1={pageData.title1} title2={pageData.title2} paragraph={pageData.paragraph} />
+      </NewsTitleWrapper>
+      <WorkOverlay />
+      <ArticlesWrapper>
+        {nodes.map(({ excerpt, frontmatter: { title, slug, author, featuredImage } }) => (
+          <ArticlePreview
+            title={title}
+            excerpt={excerpt}
+            background={featuredImage.childImageSharp.fluid.src}
+            slug={slug} />
+        ))}
+      </ArticlesWrapper>
+    </>
+  );
 }
 
 

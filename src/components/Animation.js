@@ -104,3 +104,13 @@ export const handleVideoReturn = target => {
         opacity: 0
     })
 }
+
+export const pageTransition = (node) => {
+    gsap.to(node, {
+        duration: .8,
+        height: 1,
+        transformOrigin: 'right top',
+        skewY: 15,
+        ease: 'power3.inOut',
+    })
+}

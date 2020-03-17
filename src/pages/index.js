@@ -9,6 +9,9 @@ import { graphql } from "gatsby"
 import Image from 'gatsby-image'
 
 
+
+
+
 const ContentWrapper = styled.div`
         width: 50%;
         height: calc(100vh - 100px);
@@ -77,6 +80,7 @@ const StyledImage = styled(Image)`
 
 
 const IndexPage = ({ data }) => {
+
 
   useEffect(() => {
     const tl = gsap.timeline()

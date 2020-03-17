@@ -6,6 +6,7 @@ import { globalHistory } from '@reach/router/lib/history'
 
 
 const HeaderContainer = styled.div`
+position: absolute;
     height: 100px;
     display: flex;
     align-items: center;
@@ -85,12 +86,12 @@ const Header = () => {
             setState({
                 initial: null,
                 clicked: true,
-                menuName: 'Close'
+                menuName: 'Menu'
             })
         } else if (state.clicked === true) {
             setState({
                 clicked: !state.clicked,
-                menuName: 'Menu'
+                menuName: 'Close'
             })
         } else if (state.clicked === false) {
             setState({
