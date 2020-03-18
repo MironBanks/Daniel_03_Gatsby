@@ -80,6 +80,7 @@ const NewsPage = ({ data }) => {
       <ArticlesWrapper>
         {nodes.map(({ excerpt, frontmatter: { title, slug, author, featuredImage } }) => (
           <ArticlePreview
+            key={slug}
             title={title}
             excerpt={excerpt}
             background={featuredImage.childImageSharp.fluid.src}

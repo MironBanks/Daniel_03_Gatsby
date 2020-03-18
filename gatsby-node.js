@@ -9,29 +9,20 @@ exports.createPages = async ({ graphql, actions }) => {
         allMdx {
             nodes{
             frontmatter{
-                title
                 slug
-                quoter
-                featuredImage {
-                childImageSharp{
-                    fluid(maxWidth: 700, maxHeight: 500) {
-                    src
-                    }
                 }
-                }
-            }
-            body
             }
         }
-    }
+     }
   `)
+
     result.data.allMdx.nodes.forEach(post => {
         createPage({
 
             path: `news/${post.frontmatter.slug}`,
             component: blogPostTemplate,
             context: {
-                post
+                slug: post.frontmatter.slug
             },
         })
     })
