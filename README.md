@@ -28,6 +28,7 @@ New version of simplefilms.no
  - [X] GraphQL for images
  - [X] MDX and global post
  - [] create the foundation of a blog
+ - [] headleess CMS blog
  - [] Gatsby Node API
  - [] DatoCMS
  - [] connecting DatoCMS and Gatsby

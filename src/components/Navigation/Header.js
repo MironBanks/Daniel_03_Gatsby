@@ -6,7 +6,7 @@ import { globalHistory } from '@reach/router/lib/history'
 
 
 const HeaderContainer = styled.div`
-position: absolute;
+
     height: 100px;
     display: flex;
     align-items: center;
