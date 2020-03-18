@@ -105,12 +105,15 @@ export const handleVideoReturn = target => {
     })
 }
 
-export const pageTransition = (node) => {
-    gsap.to(node, {
+export const pageTransition = (node1, node2) => {
+    gsap.to([node1, node2], 1.4, {
         duration: .8,
-        height: 1,
+        height: 0,
         transformOrigin: 'right top',
         skewY: 15,
         ease: 'power3.inOut',
+        stagger: {
+            amount: 0.2
+        }
     })
 }
