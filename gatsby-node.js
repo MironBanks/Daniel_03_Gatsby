@@ -11,7 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
             frontmatter{
                 title
                 slug
-                author
+                quoter
                 featuredImage {
                 childImageSharp{
                     fluid(maxWidth: 700, maxHeight: 500) {
@@ -20,7 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 }
                 }
             }
-            excerpt(pruneLength: 600)
+            body
             }
         }
     }
@@ -31,7 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
             path: `news/${post.frontmatter.slug}`,
             component: blogPostTemplate,
             context: {
-
+                post
             },
         })
     })
