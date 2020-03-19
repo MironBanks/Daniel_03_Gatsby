@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Image from 'gatsby-image';
 import { Link } from 'gatsby'
 
 const PreviewWrapper = styled(Link)`
@@ -8,7 +9,6 @@ const PreviewWrapper = styled(Link)`
   width: 33.3333vw;
   height: 50vh;
   background-color: hsl(0, 0%, 95%);
-  background-image: url(${({ background }) => background});
   background-size: cover;
   overflow: hidden;
   opacity: 0.85;
@@ -40,10 +40,18 @@ const PreviewInfoLabel = styled.div`
   }
 `;
 
-const Preview = ({ title, excerpt, background, slug }) => (
-  <PreviewWrapper background={background} to={`/news/${slug}`}>
+const StyledImage = styled(Image)`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+
+
+const Preview = ({ title, excerpt, image, slug }) => (
+  <PreviewWrapper to={`/news/${slug}`}>
+    <StyledImage fluid={image} />
     <PreviewInfoLabel>
-      <p>{excerpt}</p>
       <h2>{title}</h2>
     </PreviewInfoLabel>
   </PreviewWrapper>

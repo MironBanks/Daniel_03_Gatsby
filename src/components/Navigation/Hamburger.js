@@ -311,7 +311,7 @@ const Hamburger = ({ state }) => {
                                     </ul>
                                 </nav>
                                 <Info ref={el => (info = el)}>
-                                    <h3>Our Promise</h3>
+                                    <h3>Who We are...</h3>
                                     <p>Have you ever heard or read stories about people who
                                         change their paths and find their passion after 30?
                                         <br />

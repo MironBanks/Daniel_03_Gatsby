@@ -11,7 +11,8 @@ const Wrapper = styled.div`
   }
 
   p {
-    font-size: 18px;
+    font-size: 34px;
+    font-weight: 300;
     margin: 15px 0 0;
   }
 `;

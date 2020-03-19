@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { graphql } from 'gatsby'
 import gsap from 'gsap'
+import slugify from 'slugify';
 import PageInfo from '../components/PageInfo/PageInfo'
 import ArticlePreview from '../components/ArticlePreview/ArticlePreview'
 
@@ -16,7 +17,6 @@ const NewsTitleWrapper = styled.div`
         justify-content: center;
         align-items: flex-start;
         background-color: white;
-        
 `
 
 
@@ -40,7 +40,9 @@ const pageData = {
 
 
 const NewsPage = ({ data }) => {
-  const { allMdx: { nodes } } = data
+  const {
+    allDatoCmsPortfolio: { nodes },
+  } = data;
 
 
   useEffect(() => {
@@ -78,13 +80,12 @@ const NewsPage = ({ data }) => {
       </NewsTitleWrapper>
       <WorkOverlay />
       <ArticlesWrapper>
-        {nodes.map(({ excerpt, frontmatter: { title, slug, author, featuredImage } }) => (
+        {nodes.map(({ title, featuredImage }) => (
           <ArticlePreview
-            key={slug}
+            key={title}
             title={title}
-            excerpt={excerpt}
-            background={featuredImage.childImageSharp.fluid.src}
-            slug={slug} />
+            image={featuredImage.fluid}
+            slug={slugify(title, { lower: true })} />
         ))}
       </ArticlesWrapper>
     </>
@@ -94,23 +95,16 @@ const NewsPage = ({ data }) => {
 
 export const query = graphql`
   {
-    allMdx {
-      nodes {
-        frontmatter {
-          title
-          slug
-          author
-          featuredImage {
-          childImageSharp{
-            fluid(maxWidth: 700, maxHeight: 500) {
-              src
-            }
+        allDatoCmsPortfolio{
+           nodes{
+              title
+              featuredImage {
+                  fluid(maxWidth: 500) {
+                      ...GatsbyDatoCmsFluid_tracedSVG
+                  }
+              }
           }
         }
-        }
-        excerpt(pruneLength: 50)
-      }
-    }
   }
 `;
 

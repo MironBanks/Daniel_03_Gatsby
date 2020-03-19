@@ -47,7 +47,27 @@ export const fadeInUp = (node) => {
     gsap.from(node, {
         y: 60,
         duration: 1,
-        delay: .2,
+        delay: .8,
+        opacity: 0,
+        ease: 'power3.inOut'
+    })
+}
+
+export const fadeInDown = (node) => {
+    gsap.from(node, {
+        y: -60,
+        duration: 1,
+        delay: .8,
+        opacity: 0,
+        ease: 'power3.inOut'
+    })
+}
+
+export const fadeInLeft = (node) => {
+    gsap.from(node, {
+        x: -60,
+        duration: 1,
+        delay: .8,
         opacity: 0,
         ease: 'power3.inOut'
     })
