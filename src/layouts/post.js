@@ -46,6 +46,11 @@ const PostRenderer = styled.div`
     padding: 40px;
     border-left: 30px #596C68 solid;
     margin-bottom: 20px;
+
+    iframe{
+        width:900px;
+        height:350px;
+    }
 `
 
 export const query = graphql`
@@ -60,6 +65,15 @@ export const query = graphql`
             articleContent{
                 ... on DatoCmsHeading{
                     headingContent
+                    id
+                }
+                ... on DatoCmsArticleVideo{
+                    video{
+                    url
+                    title
+                    height
+                    width
+                    }
                     id
                 }
                 ... on DatoCmsParagraph {
@@ -113,8 +127,16 @@ const PostLayout = ({ data }) => {
                             return <p key={item.id}>{item[itemKey]}</p>;
                         case 'headingContent':
                             return <h2 key={item.id}>{item[itemKey]}</h2>;
+                        case 'video':
+                            return <iframe
+                                key={item.id}
+                                title={item[itemKey].title}
+                                src={item[itemKey].url} />;
                         case 'imageData':
-                            return <Image alt="post_image" key={item.id} fixed={item[itemKey].fixed} />
+                            return <Image
+                                alt="post_image"
+                                key={item.id}
+                                fixed={item[itemKey].fixed} />
                         default:
                             return null;
                     }
