@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react'
-import { graphql } from 'gatsby'
 import gsap from 'gsap'
-import slugify from 'slugify';
 import PageInfo from '../components/PageInfo/PageInfo'
-import ArticlePreview from '../components/ArticlePreview/ArticlePreview'
 
 import styled from 'styled-components'
 import WorkOverlay from '../components/IntroOverlay/WorkOverlay'
@@ -20,17 +17,6 @@ const NewsTitleWrapper = styled.div`
 `
 
 
-const ArticlesWrapper = styled.div`
-   position: absolute;
-   width: 100%;
-   right: 0;
-   left: 0;
-   bottom: 0;
-   display: flex;
-   flex-direction: row; 
-`;
-
-
 
 const pageData = {
   title1: 'What kind of film',
@@ -39,10 +25,8 @@ const pageData = {
 }
 
 
-const NewsPage = ({ data }) => {
-  const {
-    allDatoCmsPortfolio: { nodes },
-  } = data;
+const NewsPage = () => {
+
 
 
   useEffect(() => {
@@ -79,33 +63,8 @@ const NewsPage = ({ data }) => {
         <PageInfo title1={pageData.title1} title2={pageData.title2} paragraph={pageData.paragraph} />
       </NewsTitleWrapper>
       <WorkOverlay />
-      <ArticlesWrapper>
-        {nodes.map(({ title, featuredImage }) => (
-          <ArticlePreview
-            key={title}
-            title={title}
-            image={featuredImage.fluid}
-            slug={slugify(title, { lower: true })} />
-        ))}
-      </ArticlesWrapper>
     </>
   );
 }
-
-
-export const query = graphql`
-  {
-        allDatoCmsPortfolio{
-           nodes{
-              title
-              featuredImage {
-                  fluid(maxWidth: 500) {
-                      ...GatsbyDatoCmsFluid_tracedSVG
-                  }
-              }
-          }
-        }
-  }
-`;
 
 export default NewsPage
