@@ -21,7 +21,9 @@ const ContentWrapper = styled.div`
         justify-content: center;
         align-items: flex-end;
         background-color: white;
-
+        @media only screen and (max-width: 500px) {
+                    width: 100%;
+                    }
 `
 
 const TextHero = styled.h2`
