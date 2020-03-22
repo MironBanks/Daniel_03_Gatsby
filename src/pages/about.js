@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import gsap from 'gsap'
 import { Link } from 'gatsby'
-import Button from '../components/Button/Button'
 
+import Button from '../components/Button/Button'
 import IntroOverlay from "../components/IntroOverlay/IntroOverlay"
 import IntroOverlaySecond from '../components/IntroOverlay/IntroOverlaySecond'
 import PageInfo from '../components/PageInfo/PageInfo'
@@ -13,7 +13,7 @@ import FooterWave from '../components/FooterWave/FooterWave'
 
 
 const AboutTitleWrapper = styled.div`
-height: 80vh;
+        height: 80vh;
         width: 50%;
         text-align: left;
         padding: 10px;
@@ -25,7 +25,6 @@ height: 80vh;
         text-align: center;
         margin: 0 auto;
         background-color: white;
-
         @media only screen and (max-width: 500px) {
                     margin-top: 5px;
                     width: 100%;
@@ -40,7 +39,6 @@ border: 1px solid black;
 background-color: black;
 height: 3px;
 width: 70px;
-            
             @media only screen and (max-width: 500px) {
                     display: none;
                     }

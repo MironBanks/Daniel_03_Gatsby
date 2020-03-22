@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import gsap from 'gsap'
-import PageInfo from '../components/PageInfo/PageInfo'
-
 import styled from 'styled-components'
+
+import PageInfo from '../components/PageInfo/PageInfo'
 import WorkOverlay from '../components/IntroOverlay/WorkOverlay'
 
 

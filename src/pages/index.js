@@ -1,11 +1,11 @@
 import React, { useEffect } from "react"
 import { Link } from 'gatsby'
+import gsap from 'gsap'
+import { graphql } from "gatsby"
+
 import styled from 'styled-components'
 import IntroOverlay from "../components/IntroOverlay/IntroOverlay"
 import Button from '../components/Button/Button'
-
-import gsap from 'gsap'
-import { graphql } from "gatsby"
 import Image from 'gatsby-image'
 
 
