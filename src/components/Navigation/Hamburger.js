@@ -163,8 +163,8 @@ const Wrapper = styled.div`
                 padding:0 10px; 
 
                     .menu-links nav ul li {
-                        font-size: 5rem;
-                        height: 100px;
+                        font-size: 3rem;
+                        height: 70px;
                     }
                 }
 `
@@ -237,6 +237,7 @@ const Hamburger = ({ state }) => {
     let line2 = useRef(null)
     let line3 = useRef(null)
     let line4 = useRef(null)
+    let line5 = useRef(null)
     let info = useRef(null)
 
     useEffect(() => {
@@ -260,7 +261,7 @@ const Hamburger = ({ state }) => {
             })
             fadeInUp(info)
             staggerReveal(RevealMenuBackground, RevealMenu)
-            staggerText(line1, line2, line3, line4)
+            staggerText(line1, line2, line3, line4, line5)
 
         }
     }, [state])
@@ -293,16 +294,23 @@ const Hamburger = ({ state }) => {
                                                 onMouseEnter={e => handleHover(e)}
                                                 onMouseOut={e => handleHoverExit(e)}
                                                 onBlur={e => handleHoverExit(e)}
-                                                to='/news'>News</Link></li>
+                                                to='/portfolio'>Portfolio</Link></li>
                                         <li
                                             ref={el => (line3 = el)}>
                                             <Link
                                                 onMouseEnter={e => handleHover(e)}
                                                 onMouseOut={e => handleHoverExit(e)}
                                                 onBlur={e => handleHoverExit(e)}
-                                                to='/prices'>Prices</Link></li>
+                                                to='/blog'>Blog</Link></li>
                                         <li
                                             ref={el => (line4 = el)}>
+                                            <Link
+                                                onMouseEnter={e => handleHover(e)}
+                                                onMouseOut={e => handleHoverExit(e)}
+                                                onBlur={e => handleHoverExit(e)}
+                                                to='/prices'>Prices</Link></li>
+                                        <li
+                                            ref={el => (line5 = el)}>
                                             <Link
                                                 onMouseEnter={e => handleHover(e)}
                                                 onMouseOut={e => handleHoverExit(e)}

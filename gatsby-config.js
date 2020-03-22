@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -41,12 +39,6 @@ module.exports = {
       options: {
         name: `articles`,
         path: `${__dirname}/src/data/articles`,
-      },
-    },
-    {
-      resolve: `gatsby-source-datocms`,
-      options: {
-        apiToken: process.env.API_DATO_CMS,
       },
     },
     `gatsby-transformer-sharp`,

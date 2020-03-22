@@ -22,12 +22,6 @@ const ContentWrapper = styled.div`
         align-items: flex-end;
         background-color: white;
 
-        @media only screen and (max-width: 500px) {
-                    width: 100%;
-                    height: 70vh;
-                    overflow: hidden;
-                    }
-
 `
 
 const TextHero = styled.h2`

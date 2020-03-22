@@ -29,8 +29,8 @@ export const staggerRevealClose = (node1, node2) => {
 
 //STAGGER THE LINKS TO APPER
 
-export const staggerText = (node1, node2, node3, node4) => {
-    gsap.from([node1, node2, node3, node4], {
+export const staggerText = (node1, node2, node3, node4, node5) => {
+    gsap.from([node1, node2, node3, node4, node5], {
         duration: 0.8,
         opacity: 0,
         delay: .1,
