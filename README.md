@@ -18,15 +18,20 @@ New version of simplefilms.no
 ### sleep - eat - code -repeat
  - [X] create gatsby skeleton
  - [X] create header and menu
+ - [X] create footer component
+ - [] create prices page
+ - [] create price component
+ - [] create blog page
  - [X] global layout
  - [X] styling front page and menu
  - [X] animation in gsap for menu
  - [X] animation in gsap for frontPage
- - [X] animation in gsap for NewsPage
+ - [X] create about me page
+ - [X] animation in gsap for About Me
  - [X] f#&%k that
  - [X] global animation
- - [X] GraphQL for images
- - [X] MDX and global post
+ - [] GraphQL for images
+ - [] MDX and global post
  - [] create the foundation of a blog
  - [] headleess CMS blog
  - [] Gatsby Node API
