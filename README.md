@@ -17,23 +17,29 @@ New version of simplefilms.no
 ## TODO LIST
 ### sleep - eat - code -repeat
  - [X] create gatsby skeleton
- - [X] create header and menu
- - [X] create footer component
- - [X] create prices page
- - [X] create price component
- - [] media query price plan
- - [] create blog page
  - [X] global layout
- - [X] styling front page and menu
- - [X] animation in gsap for menu
- - [X] animation in gsap for frontPage
- - [X] create about me page
- - [X] animation in gsap for About Me
- - [X] f#&%k that
  - [X] global animation
+ - [X] create Header
+ - [X] create Menu
+ - [X] animation in gsap for Menu
+ - [X] create Footer component
+ - [X] create FrontPage
+ - [X] animation in gsap for FrontPage
+ - [] media query FrontPage
+ - [X] create AboutMePage
+ - [X] animation in gsap for AboutMePage
+ - [] media query AboutMePage
+ - [X] create PricesPage
+ - [X] create Price component
+ - [] animation in gsap for PricesPage
+ - [] media query PricePage
+ - [] create the foundation of a blog
+ - [] create BlogPage
+ - [] animation in gsap for BlogPage
+ - [] media query BlogPage
+ - [X] f#&%k that
  - [] GraphQL for images
  - [] MDX and global post
- - [] create the foundation of a blog
  - [] headleess CMS blog
  - [] Gatsby Node API
  - [] DatoCMS
