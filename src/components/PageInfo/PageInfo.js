@@ -31,7 +31,8 @@ const Wrapper = styled.div`
                         margin: 15px 0 0;
                         text-align: right;
                         }
-`;
+  }
+`
 
 const PageInfo = ({ title1, title2, paragraph, paragraph2, paragraph3 }) => (
   <Wrapper>

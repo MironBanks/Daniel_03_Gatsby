@@ -19,8 +19,9 @@ New version of simplefilms.no
  - [X] create gatsby skeleton
  - [X] create header and menu
  - [X] create footer component
- - [] create prices page
- - [] create price component
+ - [X] create prices page
+ - [X] create price component
+ - [] media query price plan
  - [] create blog page
  - [X] global layout
  - [X] styling front page and menu
