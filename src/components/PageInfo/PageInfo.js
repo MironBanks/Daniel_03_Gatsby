@@ -25,8 +25,13 @@ const Wrapper = styled.div`
                     text-align: right;
                     margin: 10px 0;
 
-                    h1 {
-                        font-size: 2.5rem;
+                      h1 {
+                          font-size: 2rem;
+                          margin: 0;
+                        }
+
+                      h2 {
+                        font-size: 1.8rem;
                         margin: 0;
                       }
 
