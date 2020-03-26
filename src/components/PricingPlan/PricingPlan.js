@@ -16,6 +16,7 @@ const Wrapper = styled.div`
 
 const PlanWrapper = styled.div`
     border: solid black 1px;
+    width: 400px;
     max-width: 450px;
     display: flex;
     flex-direction: column;
@@ -72,35 +73,39 @@ const PricingPlan = () => (
         <PlanWrapper>
             <h1>PRO</h1>
             <p className="paragraph">
-                Everything you need. For a reasonable price.
+                More than anyone can give –
+                <br />
+                for less than anywhere else.
             </p>
             <p className="paragraph">
-                2 Hour Shoot
+                1/2 Day Shoot
             </p>
             <p className="paragraph">
-                3 Micro Videos (15-30 seconds)
+                60-120 Second Video
             </p>
             <p className="paragraph">
-                Great for Social Media Ads/Content
+                Ideal Introductory Video for Your Company
             </p>
-            <h2>NOK 3500</h2>
+            <h2>NOK 6000</h2>
         </PlanWrapper>
 
         <PlanWrapper>
             <h1>VIP</h1>
             <p className="paragraph">
-                Everything you need. For a reasonable price.
+                Ok, we get it. You’re the boss now.
+                <br />
+                Just tell us what you need.
             </p>
             <p className="paragraph">
-                2 Hour Shoot
+                Full Day Shoot
             </p>
             <p className="paragraph">
-                3 Micro Videos (15-30 seconds)
+                60-120 Second “Sizzle” Video
             </p>
             <p className="paragraph">
-                Great for Social Media Ads/Content
+                6 Micro (15-30 second) Videos
             </p>
-            <h2>NOK 3500</h2>
+            <h2>NOK 8000</h2>
         </PlanWrapper>
     </Wrapper>
 );
