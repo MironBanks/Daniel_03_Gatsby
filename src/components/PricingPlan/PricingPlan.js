@@ -9,7 +9,8 @@ const Wrapper = styled.div`
 
 
   @media only screen and (max-width: 500px) {
-                    
+        margin-top: 150px;
+        flex-direction: column;
   }
 `
 
@@ -31,6 +32,22 @@ const PlanWrapper = styled.div`
         font-size: 3.5rem;
         font-weight: 300;
     }
+
+    @media only screen and (max-width: 500px) {
+       max-width: 300px;
+       padding: 5px;
+       margin: 10px;
+
+       h1{
+        font-size: 2rem;
+        font-weight: 300;
+    }
+
+    h2{
+        font-size: 2.5rem;
+        font-weight: 300;
+    }
+  }
 `
 
 const PricingPlan = () => (

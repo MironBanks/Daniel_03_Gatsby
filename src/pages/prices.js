@@ -21,6 +21,13 @@ const PageWrapper = styled.div`
         align-items: center;
         text-align: center;
         margin: 0 auto;
+        @media only screen and (max-width: 500px) {
+                    margin-top: 5px;
+                    width: 100%;
+                    height: 78vh;
+                    overflow: hidden;
+                    align-items: flex-end;
+                    }
 `
 
 const Line = styled.div`
