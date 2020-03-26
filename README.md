@@ -25,17 +25,17 @@ New version of simplefilms.no
  - [X] create Footer component
  - [X] create FrontPage
  - [X] animation in gsap for FrontPage
- - [] media query FrontPage
+ - [X] media query FrontPage
  - [X] create AboutMePage
  - [X] animation in gsap for AboutMePage
- - [] media query AboutMePage
+ - [X] media query AboutMePage
  - [X] create PricesPage
  - [X] create Price component
- - [] animation in gsap for PricesPage
- - [] media query PricePage
- - [] create ContactPage
- - [] animation in gsap for ContactPage
- - [] media query ContactPage
+ - [X] animation in gsap for PricesPage
+ - [X] media query PricePage
+ - [X] create ContactPage
+ - [X] animation in gsap for ContactPage
+ - [X] media query ContactPage
  - [] create the foundation of a blog
  - [] create BlogPage
  - [] animation in gsap for BlogPage
