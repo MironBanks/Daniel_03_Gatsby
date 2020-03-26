@@ -46,7 +46,7 @@ width: 70px;
 
 
 const pageData = {
-    title1: 'Pick a pricing plan',
+    title1: 'Check pricing plans',
     paragraph: `We did our best to meet your expectations. Please feel free to pick the right plan for your needs.`,
 }
 

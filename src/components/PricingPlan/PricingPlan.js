@@ -48,7 +48,17 @@ const PlanWrapper = styled.div`
         font-size: 2.5rem;
         font-weight: 300;
     }
+        &:nth-child(3){
+            margin-bottom: 40px;
+        }
   }
+
+  &:nth-child(2){
+            border: solid #e3d9ca 5px;
+            h1{
+                font-weight: 400;
+            }
+        }
 `
 
 const PricingPlan = () => (
