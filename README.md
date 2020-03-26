@@ -33,6 +33,9 @@ New version of simplefilms.no
  - [X] create Price component
  - [] animation in gsap for PricesPage
  - [] media query PricePage
+ - [] create ContactPage
+ - [] animation in gsap for ContactPage
+ - [] media query ContactPage
  - [] create the foundation of a blog
  - [] create BlogPage
  - [] animation in gsap for BlogPage
