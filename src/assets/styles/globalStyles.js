@@ -18,7 +18,7 @@ body {
 
     @media only screen and (max-width: 500px) {
         width:95vw;
-        height: 100vh;
+        height: 100%;
         padding: 10px;
         margin: 0;
                 }
