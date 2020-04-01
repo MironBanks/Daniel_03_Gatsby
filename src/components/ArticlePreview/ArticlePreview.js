@@ -1,58 +1,36 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from 'gatsby-image';
-import { Link } from 'gatsby'
 
-const PreviewWrapper = styled(Link)`
-  display: block;
+const PreviewWrapper = styled.div`
   position: relative;
-  width: 33.3333vw;
-  height: 50vh;
+  width: 100%;
+  height: 340px;
   background-color: hsl(0, 0%, 95%);
+  background-image: url('https://unsplash.it/701/410');
   background-size: cover;
-  overflow: hidden;
-  opacity: 0.85;
 `;
 
 const PreviewInfoLabel = styled.div`
   position: absolute;
-  left: 30px;
-  bottom: 65px;
+  left: 0;
+  bottom: 35px;
   width: 80%;
   min-height: 40px;
+  background-color: black;
   color: white;
   padding: 5px 15px;
 
-  h2{
-    font-size: 2rem;
-    line-height: 3.4rem;
-    width: 85%;
-    margin-top: 16px;
-    color: white;
-  }
-
+  h2,
   p {
-    margin-top: 156px;
-          font-size: 1.6rem;
-          opacity: 0.8;
-          color: white;
-          font-weight: 600;
+    margin: 5px;
   }
 `;
 
-const StyledImage = styled(Image)`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-
-
-const Preview = ({ title, excerpt, image, slug }) => (
-  <PreviewWrapper to={`/news/${slug}`}>
-    <StyledImage fluid={image} />
+const Preview = ({ title, excerpt }) => (
+  <PreviewWrapper>
     <PreviewInfoLabel>
       <h2>{title}</h2>
+      <p>{excerpt}</p>
     </PreviewInfoLabel>
   </PreviewWrapper>
 );
