@@ -42,8 +42,8 @@ const ArticlesWrapper = styled.div`
 `;
 
 const pageData = {
-    title1: 'its simple... blog',
-    paragraph: `While artists work from real to the abstract, architects must work from the abstract to the real.`,
+  title1: 'its simple... blog',
+  paragraph: `While artists work from real to the abstract, architects must work from the abstract to the real.`,
 }
 
 
@@ -53,33 +53,34 @@ const pageData = {
 
 
 const BlogPage = ({ data }) => {
-    const { allMdx: { nodes } } = data;
+  const { allMdx: { nodes } } = data;
 
 
-    useEffect(() => {
-        pageTransition('.overlay, .overlaySecond')
-    })
+  useEffect(() => {
+    pageTransition('.overlay, .overlaySecond')
+  })
 
-    return (
-        <>
-            <IntroOverlay />
-            <IntroOverlaySecond />
+  return (
+    <>
+      <IntroOverlay />
+      <IntroOverlaySecond />
 
-            <ContentWrapper>
-                <PageInfo title1={pageData.title1} paragraph={pageData.paragraph} />
-                <ArticlesWrapper>
-                    {nodes.map(({ excerpt, frontmatter: { title, slug, author, featuredImage } }) => (
-                        <ArticlePreview
-                            title={title}
-                            excerpt={excerpt}
-                            image={featuredImage.childImageSharp.fluid} />
-                    ))}
-                </ArticlesWrapper>
-                <Button> <Link to="/about">Read More</Link></Button>
-            </ContentWrapper>
-            <FooterWave />
-        </>
-    )
+      <ContentWrapper>
+        <PageInfo title1={pageData.title1} paragraph={pageData.paragraph} />
+        <ArticlesWrapper>
+          {nodes.map(({ excerpt, frontmatter: { title, slug, author, featuredImage } }) => (
+            <ArticlePreview
+              title={title}
+              excerpt={excerpt}
+              image={featuredImage.childImageSharp.fluid}
+              slug={slug} />
+          ))}
+        </ArticlesWrapper>
+        <Button> <Link to="/about">Read More</Link></Button>
+      </ContentWrapper>
+      <FooterWave />
+    </>
+  )
 }
 
 export const query = graphql`

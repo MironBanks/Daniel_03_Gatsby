@@ -4,23 +4,12 @@ exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
     const blogPostTemplate = path.resolve(`src/layouts/post.js`)
     const result = await graphql(`
-  query queryArticles {
+    query queryArticles {
         allMdx {
-            nodes{
-                frontmatter{
-                        title
-                        slug
-                        author
-                        quoter
-                        featuredImage{
-                        childImageSharp{
-                                fluid(maxWidth: 700, maxHeight: 500) {
-                                    src
-                                    }
-                            }
-                        }
-                    }
-                excerpt(pruneLength: 50)
+            nodes {
+            frontmatter {
+                slug
+            }
             }
         }
     }
@@ -31,7 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
             path: `blog/${post.frontmatter.slug}`,
             component: blogPostTemplate,
             context: {
-
+                slug: post.frontmatter.slug,
             },
         })
     })
