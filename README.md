@@ -36,18 +36,21 @@ New version of simplefilms.no
  - [X] create ContactPage
  - [X] animation in gsap for ContactPage
  - [X] media query ContactPage
- - [] create the foundation of a blog
- - [] create BlogPage
- - [] animation in gsap for BlogPage
- - [] media query BlogPage
+ - [X] create the foundation of a blog
+ - [X] create BlogPage
+ - [X] animation in gsap for BlogPage
+ - [X] media query BlogPage
  - [X] f#&%k that
- - [] GraphQL for images
- - [] MDX and global post
+ - [X] create the foundation of a BlogPost
+ - [X] create BlogPost
+ - [] animation in gsap for BlogPost
+ - [] media query BlogPost
+ - [X] GraphQL for images
+ - [X] MDX and global post
  - [] headleess CMS blog
- - [] Gatsby Node API
+ - [X] Gatsby Node API
  - [] DatoCMS
  - [] connecting DatoCMS and Gatsby
- - [] media query
  - [] tests
  - [] deploy
 
