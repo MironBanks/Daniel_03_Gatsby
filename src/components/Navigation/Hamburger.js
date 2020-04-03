@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import corpo from '../../assets/images/corpo.jpg'
 import event from '../../assets/images/event.jpeg'
 import promo from '../../assets/images/promo.jpeg'
+import aerial from '../../assets/images/aerial.jpeg'
 import social from '../../assets/images/social_media.jpeg'
 
 import {
@@ -24,6 +25,7 @@ const videoWork = [
     { name: 'Corpo', image: corpo },
     { name: 'Event', image: event },
     { name: 'Promo', image: promo },
+    { name: 'Aerial', image: aerial },
     { name: 'Social', image: social }
 ];
 
