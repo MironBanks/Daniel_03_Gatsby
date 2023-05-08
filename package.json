@@ -9,7 +9,7 @@
     "@mdx-js/react": "^1.5.7",
     "babel-plugin-styled-components": "^1.10.7",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.19.48",
+    "gatsby": "^2.32.13",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-layout": "^1.1.23",
     "gatsby-plugin-manifest": "^2.2.39",
